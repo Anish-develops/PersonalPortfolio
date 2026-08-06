@@ -13,7 +13,8 @@ import {
   Terminal,
   Volume2,
   VolumeX,
-  Binary
+  Binary,
+  Download
 } from 'lucide-react';
 import { soundEffects } from '../utils/audio';
 
@@ -27,7 +28,7 @@ export const HeroBento = ({
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
 
-  const email = 'anishdevelops@gmail.com';
+  const email = 'contact@anishdevelops.me';
   const phone = '+91 7065692440';
   const location = 'New Delhi, Delhi';
 
@@ -127,7 +128,7 @@ export const HeroBento = ({
             {/* Email Button */}
             <button
               onClick={() => handleCopy(email, 'email')}
-              className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white transition flex items-center gap-1.5 shadow-sm"
+              className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white transition flex items-center gap-1.5 shadow-sm cursor-pointer"
             >
               <Mail className="w-3.5 h-3.5 text-lime-400" />
               <span>{email}</span>
@@ -137,7 +138,7 @@ export const HeroBento = ({
             {/* Phone Button */}
             <button
               onClick={() => handleCopy(phone, 'phone')}
-              className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white transition flex items-center gap-1.5 shadow-sm"
+              className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-200 hover:text-white transition flex items-center gap-1.5 shadow-sm cursor-pointer"
             >
               <Phone className="w-3.5 h-3.5 text-lime-400" />
               <span>{phone}</span>
@@ -149,6 +150,19 @@ export const HeroBento = ({
               <MapPin className="w-3.5 h-3.5 text-zinc-400" />
               <span>{location}</span>
             </div>
+
+            {/* Resume Button */}
+            <a
+              href="/Anish_Kumar_Resume.pdf"
+              download="Anish_Kumar_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => soundEffects.playClick()}
+              className="px-3 py-1.5 rounded-lg bg-lime-400/10 border border-lime-400/40 text-lime-400 hover:bg-lime-400 hover:text-black transition flex items-center gap-1.5 font-bold shadow-sm cursor-pointer"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Resume PDF</span>
+            </a>
           </div>
         </div>
       </div>

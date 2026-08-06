@@ -81,14 +81,21 @@ export const Navbar = ({ onStartTour }) => {
           </button>
 
           {/* Hire Me CTA */}
-          <a
-            href="mailto:anishdevelops@gmail.com"
-            onClick={() => soundEffects.playClick()}
-            className="px-4 py-1.5 rounded-lg bg-lime-400 text-black font-sans font-bold text-xs hover:bg-lime-300 transition shadow-sm flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-400"
+          <button
+            onClick={() => {
+              soundEffects.playClick();
+              scrollToSection('contact');
+              setTimeout(() => {
+                const nameInput = document.getElementById('contact-name');
+                if (nameInput) nameInput.focus();
+              }, 400);
+              window.location.href = 'mailto:contact@anishdevelops.me?subject=Hiring%20Inquiry%20-%20Anish%20Kumar';
+            }}
+            className="px-4 py-1.5 rounded-lg bg-lime-400 text-black font-sans font-bold text-xs hover:bg-lime-300 transition shadow-sm flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-400 cursor-pointer"
           >
             <Terminal className="w-3.5 h-3.5" />
             <span>Hire Anish</span>
-          </a>
+          </button>
 
           {/* Mobile Menu Toggle Toggle */}
           <button
@@ -136,6 +143,17 @@ export const Navbar = ({ onStartTour }) => {
               className="w-full text-left py-2 hover:text-lime-400 transition"
             >
               Contact
+            </button>
+
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                scrollToSection('contact');
+                window.location.href = 'mailto:contact@anishdevelops.me?subject=Hiring%20Inquiry%20-%20Anish%20Kumar';
+              }}
+              className="w-full text-center py-2.5 px-4 rounded-lg bg-lime-400 text-black font-bold text-xs flex items-center justify-center gap-2 mt-2"
+            >
+              <Terminal className="w-4 h-4" /> Hire Anish
             </button>
 
             <button

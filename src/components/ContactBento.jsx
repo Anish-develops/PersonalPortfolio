@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Copy, Sparkles, Terminal } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Copy, Sparkles, Terminal, Download } from 'lucide-react';
 import { soundEffects } from '../utils/audio';
 
 export const ContactBento = () => {
@@ -16,7 +16,14 @@ export const ContactBento = () => {
     soundEffects.playClick();
     setLoading(true);
 
+    const mailtoSubject = encodeURIComponent(`Portfolio Message from ${formData.name}`);
+    const mailtoBody = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    const mailtoUrl = `mailto:contact@anishdevelops.me?subject=${mailtoSubject}&body=${mailtoBody}`;
+
     setTimeout(() => {
+      window.location.href = mailtoUrl;
       setLoading(false);
       setSubmitted(true);
       soundEffects.playSuccess();
@@ -26,7 +33,7 @@ export const ContactBento = () => {
         spread: 70,
         origin: { y: 0.7 }
       });
-    }, 800);
+    }, 600);
   };
 
   return (
@@ -48,10 +55,10 @@ export const ContactBento = () => {
           </p>
 
           {/* Quick Info Matrix */}
-          <div className="space-y-2 pt-2 font-sans text-xs text-zinc-300 font-medium">
+          <div className="space-y-2.5 pt-2 font-sans text-xs text-zinc-300 font-medium">
             <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-zinc-900 border border-zinc-800">
               <Mail className="w-4 h-4 text-lime-400" />
-              <span>anishdevelops@gmail.com</span>
+              <span>contact@anishdevelops.me</span>
             </div>
             <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-zinc-900 border border-zinc-800">
               <Phone className="w-4 h-4 text-lime-400" />
@@ -60,6 +67,21 @@ export const ContactBento = () => {
             <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-zinc-900 border border-zinc-800">
               <MapPin className="w-4 h-4 text-zinc-400" />
               <span>New Delhi, Delhi, India</span>
+            </div>
+
+            {/* Resume Download Action */}
+            <div className="pt-2">
+              <a
+                href="/Anish_Kumar_Resume.pdf"
+                download="Anish_Kumar_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => soundEffects.playClick()}
+                className="w-full inline-flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl bg-zinc-900 border border-lime-400/40 text-lime-400 font-sans font-bold text-xs hover:bg-lime-400 hover:text-black transition-all shadow-md group/btn cursor-pointer"
+              >
+                <Download className="w-4 h-4 group-hover/btn:-translate-y-0.5 transition-transform" />
+                <span>Download Official Resume (PDF)</span>
+              </a>
             </div>
           </div>
         </div>
@@ -77,7 +99,7 @@ export const ContactBento = () => {
               </div>
               <h3 className="text-lg font-bold text-white font-heading">Message Dispatched!</h3>
               <p className="text-xs text-zinc-400 font-sans">
-                Thank you for reaching out. Anish will review your query and get back to you shortly.
+                Thank you for reaching out. Mail client launched to contact@anishdevelops.me. Anish will review your message and reply promptly.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
@@ -135,7 +157,7 @@ export const ContactBento = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-2.5 px-4 rounded-lg bg-lime-400 text-black font-bold font-sans hover:bg-lime-300 transition shadow-sm flex items-center justify-center gap-2 focus:ring-2 focus:ring-lime-400"
+                className="w-full py-2.5 px-4 rounded-lg bg-lime-400 text-black font-bold font-sans hover:bg-lime-300 transition shadow-sm flex items-center justify-center gap-2 focus:ring-2 focus:ring-lime-400 cursor-pointer"
               >
                 <Send className="w-4 h-4" />
                 {loading ? 'Transmitting...' : 'Send Direct Message'}

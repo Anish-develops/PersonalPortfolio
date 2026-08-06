@@ -163,7 +163,7 @@ function processInterviewSession(candidateId, socketId) {
           message: "Authentication Token Generated",
           user: {
             id: "user_anish_01",
-            email: "anishdevelops@gmail.com",
+            email: "contact@anishdevelops.me",
             role: "ADMIN_CREATOR"
           },
           token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFuaXNoIEt1bWFyIiwiaWF0IjoxNTE2MjM5MDIyfQ"

@@ -26,10 +26,10 @@ export const Footer = ({ onStartTour }) => {
 
         <div className="flex items-center gap-3 text-zinc-400 flex-wrap justify-center font-medium">
           <a
-            href="mailto:anishdevelops@gmail.com"
+            href="mailto:contact@anishdevelops.me"
             className="hover:text-white transition"
           >
-            anishdevelops@gmail.com
+            contact@anishdevelops.me
           </a>
           <span>•</span>
           <span>+91 7065692440</span>
