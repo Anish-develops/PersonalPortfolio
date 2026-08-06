@@ -49,18 +49,15 @@ export const SkillsBento = () => {
   const categories = ['ALL', 'Languages', 'Frontend', 'Backend', 'Tools', 'Core CS'];
 
   return (
-    <div id="skills-grid" className="bg-zinc-950/90 border-2 border-zinc-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden group">
-      {/* Subtle Background Accent Glow */}
-      <div className="absolute -top-24 -right-24 w-60 h-60 rounded-full bg-lime-400/5 blur-3xl pointer-events-none" />
-
+    <div id="skills-grid" className="bg-zinc-950/90 border border-zinc-800/80 rounded-2xl p-6 shadow-xl relative overflow-hidden group">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 border-b border-zinc-800/80 pb-4">
         <div>
-          <h2 className="text-xl font-bold text-white font-heading flex items-center gap-2">
-            <span className="text-lime-400 font-mono">//</span> Technical Arsenal
+          <h2 className="text-xl font-bold text-white font-heading">
+            Technical Arsenal
           </h2>
           <p className="text-xs text-zinc-400 font-sans mt-0.5">
-            Funky, production-tested skill matrix & core computer science competencies.
+            Production-tested full-stack skill matrix & core computer science competencies.
           </p>
         </div>
 
@@ -72,7 +69,7 @@ export const SkillsBento = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search skills..."
-            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white font-mono placeholder:text-zinc-600 focus:outline-none focus:border-lime-400"
+            className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-white font-sans placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-lime-400"
           />
         </div>
       </div>
@@ -86,9 +83,9 @@ export const SkillsBento = () => {
               soundEffects.playClick();
               setActiveCategory(cat);
             }}
-            className={`px-3 py-1 rounded-md text-xs font-mono font-medium transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-sans font-medium transition-all ${
               activeCategory === cat
-                ? 'bg-lime-400 text-black font-bold shadow-brutal-green-sm scale-105'
+                ? 'bg-lime-400 text-black font-semibold shadow-sm'
                 : 'bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 border border-zinc-800'
             }`}
           >
@@ -109,31 +106,31 @@ export const SkillsBento = () => {
 
             return (
               <div key={groupIdx} className="space-y-2">
-                <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 font-semibold">
+                <div className="flex items-center gap-2 text-xs font-sans text-zinc-400 font-semibold">
                   <IconComp className="w-4 h-4 text-lime-400" />
                   <span>{group.category}</span>
                   <span className="text-zinc-600 text-[10px]">({filteredSkills.length})</span>
                 </div>
 
-                <div className="flex flex-wrap gap-2.5">
+                <div className="flex flex-wrap gap-2">
                   {filteredSkills.map((skill, idx) => {
                     const isSelected = selectedSkill === skill;
                     return (
                       <motion.button
                         key={idx}
-                        whileHover={{ scale: 1.06, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
                         onClick={() => {
                           soundEffects.playClick();
                           setSelectedSkill(isSelected ? null : skill);
                         }}
-                        className={`px-3.5 py-1.5 rounded-full text-xs font-mono border transition-all cursor-pointer flex items-center gap-1.5 ${
+                        className={`px-3 py-1.5 rounded-lg text-xs font-sans border transition-all cursor-pointer flex items-center gap-1.5 ${
                           isSelected
-                            ? 'bg-lime-400 text-black border-lime-400 font-bold shadow-brutal-green'
-                            : 'bg-zinc-900/90 text-zinc-200 border-zinc-800 hover:border-lime-400/80 hover:text-lime-300 hover:shadow-brutal-green-sm'
+                            ? 'bg-lime-400 text-black border-lime-400 font-semibold shadow-sm'
+                            : 'bg-zinc-900 text-zinc-300 border-zinc-800 hover:border-zinc-700 hover:text-white'
                         }`}
                       >
-                        {isSelected && <Check className="w-3 h-3 text-black stroke-[3]" />}
+                        {isSelected && <Check className="w-3.5 h-3.5 text-black stroke-[3]" />}
                         <span>{skill}</span>
                       </motion.button>
                     );

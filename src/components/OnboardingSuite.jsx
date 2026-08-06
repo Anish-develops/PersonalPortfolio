@@ -206,17 +206,17 @@ export const OnboardingSuite = ({
 
               {/* Header Badge */}
               <div className="flex items-center gap-2 mb-4">
-                <span className="px-3 py-1 rounded-full bg-lime-950 text-lime-400 border border-lime-800 font-mono text-xs flex items-center gap-1.5 font-bold">
+                <span className="px-3 py-1 rounded-full bg-zinc-900 text-lime-400 border border-zinc-800 font-sans text-xs flex items-center gap-1.5 font-medium">
                   <Sparkles className="w-3.5 h-3.5" />
                   Interactive Portfolio Hub v2.0
                 </span>
-                <span className="px-2.5 py-1 rounded-full bg-zinc-900 text-zinc-400 border border-zinc-800 font-mono text-xs">
+                <span className="px-2.5 py-1 rounded-full bg-zinc-900 text-zinc-400 border border-zinc-800 font-sans text-xs font-medium">
                   ⚡ 90s Quick Tour
                 </span>
               </div>
 
               {/* Title & Description */}
-              <h2 className="text-2xl sm:text-3xl font-black font-heading text-white tracking-tight mb-2">
+              <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight mb-2">
                 Welcome to Anish's <span className="text-lime-400">Engineering Hub</span>
               </h2>
               <p className="text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed mb-6">
@@ -225,7 +225,7 @@ export const OnboardingSuite = ({
 
               {/* Persona Selector */}
               <div className="mb-6 space-y-2">
-                <span className="text-xs font-mono text-zinc-400 block uppercase tracking-wider">
+                <span className="text-xs font-sans font-medium text-zinc-400 block uppercase tracking-wider">
                   Select your primary view goal:
                 </span>
                 <div className="grid grid-cols-3 gap-2">
@@ -234,9 +234,9 @@ export const OnboardingSuite = ({
                       soundEffects.playClick();
                       setSelectedRole('recruiter');
                     }}
-                    className={`p-2.5 rounded-xl border text-xs font-mono flex flex-col items-center gap-1.5 transition ${
+                    className={`p-2.5 rounded-xl border text-xs font-sans font-medium flex flex-col items-center gap-1.5 transition ${
                       selectedRole === 'recruiter'
-                        ? 'bg-lime-400/20 text-lime-300 border-lime-400 shadow-brutal-green-sm'
+                        ? 'bg-lime-400/10 text-lime-400 border-lime-400/60 font-semibold'
                         : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-700'
                     }`}
                   >
@@ -249,13 +249,13 @@ export const OnboardingSuite = ({
                       soundEffects.playClick();
                       setSelectedRole('engineer');
                     }}
-                    className={`p-2.5 rounded-xl border text-xs font-mono flex flex-col items-center gap-1.5 transition ${
+                    className={`p-2.5 rounded-xl border text-xs font-sans font-medium flex flex-col items-center gap-1.5 transition ${
                       selectedRole === 'engineer'
-                        ? 'bg-purple-400/20 text-purple-300 border-purple-400 shadow-brutal-purple-sm'
+                        ? 'bg-lime-400/10 text-lime-400 border-lime-400/60 font-semibold'
                         : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-700'
                     }`}
                   >
-                    <Code2 className="w-4 h-4 text-purple-400" />
+                    <Code2 className="w-4 h-4 text-lime-400" />
                     <span>Engineer</span>
                   </button>
 
@@ -264,13 +264,13 @@ export const OnboardingSuite = ({
                       soundEffects.playClick();
                       setSelectedRole('visitor');
                     }}
-                    className={`p-2.5 rounded-xl border text-xs font-mono flex flex-col items-center gap-1.5 transition ${
+                    className={`p-2.5 rounded-xl border text-xs font-sans font-medium flex flex-col items-center gap-1.5 transition ${
                       selectedRole === 'visitor'
-                        ? 'bg-cyan-400/20 text-cyan-300 border-cyan-400 shadow-brutal-cyan-sm'
+                        ? 'bg-lime-400/10 text-lime-400 border-lime-400/60 font-semibold'
                         : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-700'
                     }`}
                   >
-                    <Compass className="w-4 h-4 text-cyan-400" />
+                    <Compass className="w-4 h-4 text-lime-400" />
                     <span>Explorer</span>
                   </button>
                 </div>
@@ -280,7 +280,7 @@ export const OnboardingSuite = ({
               <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
                 <button
                   onClick={startTourFromWelcome}
-                  className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-lime-400 text-black font-mono font-bold text-xs hover:bg-lime-300 transition shadow-brutal-green flex items-center justify-center gap-2 group"
+                  className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-lime-400 text-black font-sans font-bold text-xs hover:bg-lime-300 transition shadow-sm flex items-center justify-center gap-2 group"
                 >
                   <Play className="w-4 h-4 fill-black" />
                   <span>Start Guided Tour</span>
@@ -294,9 +294,9 @@ export const OnboardingSuite = ({
                     const el = document.getElementById('projects');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="w-full sm:w-auto py-3 px-4 rounded-xl bg-zinc-900 text-zinc-200 border border-zinc-800 font-mono text-xs hover:border-zinc-600 transition flex items-center justify-center gap-1.5"
+                  className="w-full sm:w-auto py-3 px-4 rounded-xl bg-zinc-900 text-zinc-200 border border-zinc-800 font-sans text-xs hover:border-zinc-700 transition flex items-center justify-center gap-1.5 font-medium"
                 >
-                  <Cpu className="w-4 h-4 text-purple-400" />
+                  <Cpu className="w-4 h-4 text-lime-400" />
                   <span>Try Sandbox</span>
                 </button>
 
@@ -306,7 +306,7 @@ export const OnboardingSuite = ({
                     setShowWelcome(false);
                     localStorage.setItem('portfolio-onboarding-completed', 'true');
                   }}
-                  className="w-full sm:w-auto py-3 px-3 rounded-xl text-zinc-400 hover:text-zinc-200 font-mono text-xs transition"
+                  className="w-full sm:w-auto py-3 px-3 rounded-xl text-zinc-400 hover:text-zinc-200 font-sans text-xs transition font-medium"
                 >
                   Skip
                 </button>
