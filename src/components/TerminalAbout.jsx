@@ -81,7 +81,7 @@ export const TerminalAbout = ({ onRunCommand, accentColor = '#a3e635', onNotifyO
       newHistory.push({
         type: 'out',
         lines: [
-          '📧 Email: contact@anishdevelops.me',
+          '📧 Email: anishdevelops@gmail.com',
           '📞 Phone: +91 7065692440',
           '📍 Location: New Delhi, Delhi, India'
         ]
